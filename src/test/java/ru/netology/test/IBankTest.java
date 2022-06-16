@@ -1,9 +1,7 @@
 package ru.netology.test;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ru.netology.data.UserInfo;
 
@@ -19,21 +17,14 @@ public class IBankTest {
     SelenideElement form = $x("//form");
     SelenideElement error = $x("//div[@data-test-id='error-notification']");
 
-//    @BeforeTest
-//    public void registrationUsers() {
-//        registration(userActive);
-//        registration(userBlocked);
-//    }
-
     @BeforeMethod
     public void setup() {
-        registration(userActive);
-        registration(userBlocked);
         open("http://localhost:9999/");
     }
 
     @Test
     public void shouldAuthActiveUser() {
+        registration(userActive);
         form.$x(".//span[@data-test-id='login']//child::input").val(userActive.getLogin());
         form.$x(".//span[@data-test-id='password']//child::input").val(userActive.getPassword());
         form.$x(".//button").click();
