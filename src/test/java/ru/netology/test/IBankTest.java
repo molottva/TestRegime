@@ -19,14 +19,16 @@ public class IBankTest {
     SelenideElement form = $x("//form");
     SelenideElement error = $x("//div[@data-test-id='error-notification']");
 
-    @BeforeTest
-    public void registrationUsers() {
-        registration(userActive);
-        registration(userBlocked);
-    }
+//    @BeforeTest
+//    public void registrationUsers() {
+//        registration(userActive);
+//        registration(userBlocked);
+//    }
 
     @BeforeMethod
     public void setup() {
+        registration(userActive);
+        registration(userBlocked);
         open("http://localhost:9999/");
     }
 
