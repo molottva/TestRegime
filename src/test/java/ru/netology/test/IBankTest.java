@@ -28,6 +28,6 @@ public class IBankTest {
         form.$x(".//span[@data-test-id='login']//child::input").val(userActive.getLogin());
         form.$x(".//span[@data-test-id='password']//child::input").val(userActive.getPassword());
         form.$x(".//button").click();
-        $x("//h2").should(text("Личный кабинет"));
+        $x("//h2").shouldNot(text("Личный кабинет"));
     }
 }
